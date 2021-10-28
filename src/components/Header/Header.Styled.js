@@ -4,7 +4,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin: 31px 0 36px 0;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
 `;
 
@@ -27,4 +27,18 @@ export const Toggle = styled.a`
   transition: 0.2s;
   text-transform: uppercase;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const ToggleIcon = styled.svg`
+  fill: ${(props) => props.theme.toggle};
+`;
+
+export const ToggleSpan = styled.div`
+  padding-left: 16px;
+
+  svg path {
+    fill: ${(props) => props.theme.toggle};
+  }
 `;
