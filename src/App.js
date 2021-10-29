@@ -8,7 +8,8 @@ import {
 import { ThemeProvider } from 'styled-components';
 
 import Header from './components/Header';
-
+import SearchBar from './components/Search';
+import SearchResult from './components/SearchResult';
 function App() {
   const [theme, setTheme] = useState('light');
 
@@ -33,8 +34,8 @@ function App() {
       <GlobalStyle />
       <Container>
         <Header toggle={theme} themeToggler={themeToggler} />
-        <h2>SearchBar</h2>
-        <h3>Results</h3>
+        <SearchBar />
+        <SearchResult />
       </Container>
     </ThemeProvider>
   );

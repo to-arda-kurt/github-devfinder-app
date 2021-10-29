@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Logo,
-  HeaderContainer,
-  Toggle,
-  ToggleSpan,
-  ToggleIcon,
-} from './Header.Styled';
+import { Logo, HeaderContainer, Toggle, ToggleSpan } from './Header.Styled';
 
 import { Moon, Sun } from '../../assets/Icons';
 
