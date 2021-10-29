@@ -14,8 +14,8 @@ const Header = ({ toggle, themeToggler }) => {
     <HeaderContainer>
       <Logo>devfinder</Logo>
       <Toggle onClick={themeToggler}>
-        {toggle}
-        <ToggleSpan>{toggle === 'dark' ? <Moon /> : <Sun />}</ToggleSpan>
+        {toggle === 'light' ? 'DARK' : 'LIGHT'}
+        <ToggleSpan>{toggle === 'light' ? <Moon /> : <Sun />}</ToggleSpan>
       </Toggle>
     </HeaderContainer>
   );
