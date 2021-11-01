@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import mainContext from './context/mainContext';
 import {
   GlobalStyle,
   lightTheme,
@@ -10,8 +11,10 @@ import { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
 import SearchBar from './components/Search';
 import SearchResult from './components/SearchResult';
-function App() {
-  const [theme, setTheme] = useState('light');
+
+const App = () => {
+  const MainContext = useContext(mainContext);
+  const { theme, setTheme } = MainContext;
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -23,7 +26,7 @@ function App() {
     } else if (prefersDark) {
       setTheme('dark');
     }
-  }, []);
+  }, [setTheme]);
 
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
@@ -39,6 +42,6 @@ function App() {
       </Container>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

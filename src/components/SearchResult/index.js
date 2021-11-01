@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ResultWrapper } from './SearchResult.styled';
-
+import MainContext from '../../context/mainContext';
 const SearchResult = () => {
+  const mainContext = useContext(MainContext);
+  const { user } = mainContext;
+  console.log(user);
+
   return (
     <ResultWrapper>
       <div>
         <div>PP</div>
         <div className="RIGHT">
-          <h2>UserName</h2>
-          <p>@tag</p>
+          <h2>{user.name}</h2>
+          <p>@{user.login}</p>
         </div>
         <div className="Date">
-          <p>Date</p>
+          <p>Joined </p>
         </div>
         <div>DESC</div>
         <div className="INFOS">
