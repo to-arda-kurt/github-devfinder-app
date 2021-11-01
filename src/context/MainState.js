@@ -7,7 +7,7 @@ import axios from 'axios';
 const MainState = (props) => {
   const initialState = {
     searchText: '',
-    isLoading: false,
+    isLoaded: false,
     theme: 'light',
     user: {},
   };
