@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import MainContext from './mainContext';
 import mainReducer from './mainReducer';
-import { GET_USER, SWITCH_THEME, SET_LOADING } from './types';
+import { GET_USER, SWITCH_THEME, SET_LOADING, SET_ERROR } from './types';
 import axios from 'axios';
 
 const MainState = (props) => {
@@ -10,18 +10,30 @@ const MainState = (props) => {
     isLoaded: false,
     theme: 'light',
     user: {},
+    error: false,
   };
 
   const [state, dispatch] = useReducer(mainReducer, initialState);
 
   const getUser = async (searchText) => {
     console.log('[context] GETUSER');
-    const res = await axios.get(`https://api.github.com/users/${searchText}`);
-    console.log(res.data);
-    dispatch({
-      type: GET_USER,
-      payload: res.data,
-    });
+    const res = await axios
+      .get(`https://api.github.com/users/${searchText}`)
+      .then((res) => {
+        console.log(res.data);
+        setLoading(true);
+        setError(false);
+        dispatch({
+          type: GET_USER,
+          payload: res.data,
+        });
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(true);
+        console.log(err);
+        console.log('no user');
+      });
   };
 
   const setTheme = (theme) => {
@@ -37,13 +49,21 @@ const MainState = (props) => {
       payload: loading,
     });
   };
+
+  const setError = (errorStatus) => {
+    dispatch({
+      type: SET_ERROR,
+      payload: errorStatus,
+    });
+  };
   return (
     <MainContext.Provider
       value={{
         searchText: state.searchText,
         user: state.user,
         theme: state.theme,
-        isLoading: state.isLoading,
+        isLoaded: state.isLoaded,
+        error: state.error,
         getUser,
         setTheme,
         setLoading,

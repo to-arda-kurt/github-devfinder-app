@@ -1,4 +1,4 @@
-import { GET_USER, SWITCH_THEME, SET_LOADING } from './types';
+import { GET_USER, SWITCH_THEME, SET_LOADING, SET_ERROR } from './types';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state, action) => {
@@ -16,7 +16,12 @@ export default (state, action) => {
     case SET_LOADING:
       return {
         ...state,
-        isLoading: action.payload,
+        isLoaded: action.payload,
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

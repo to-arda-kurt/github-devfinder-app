@@ -1,11 +1,16 @@
 import { useContext, useState } from 'react';
 import mainContext from '../../context/mainContext';
-import { SearchWrapper, SearchInput, SearchButton } from './Search.styled';
+import {
+  SearchWrapper,
+  SearchInput,
+  SearchButton,
+  ErrorText,
+} from './Search.styled';
 import { SearchIcon } from '../../assets/Icons';
 
 const SearchBar = () => {
   const MainContext = useContext(mainContext);
-  const { getUser } = MainContext;
+  const { getUser, error } = MainContext;
 
   const [user, setUser] = useState('');
 
@@ -18,6 +23,8 @@ const SearchBar = () => {
     }
   };
 
+  console.log(error);
+
   return (
     <SearchWrapper>
       <SearchIcon />
@@ -28,6 +35,7 @@ const SearchBar = () => {
         value={user}
         onChange={(e) => setUser(e.target.value)}
       />
+      {error ? <ErrorText>No Result</ErrorText> : ''}
       <SearchButton type="submit" onClick={searchUser}>
         Search
       </SearchButton>

@@ -6,4 +6,6 @@ export const ResultWrapper = styled.div`
   color: ${(props) => props.theme.font};
   border-radius: 15px;
   box-shadow: ${(props) => props.theme.boxShadow};
+  padding: 32px 24px;
+  z-index: 1;
 `;
