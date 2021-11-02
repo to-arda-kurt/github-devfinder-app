@@ -12,7 +12,7 @@ export const SearchWrapper = styled.div`
   align-items: center;
   padding: 7px;
   margin-bottom: 16px;
-  z-index: -1;
+  z-index: 0;
 `;
 
 export const SearchInput = styled.input`

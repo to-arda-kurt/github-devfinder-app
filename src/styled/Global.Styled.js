@@ -8,7 +8,7 @@ export const lightTheme = {
   font: '#2B3442',
   body: '#F6F8FF',
   secondary: '#FEFEFE',
-  boxShadow: '0px 16px 30px -10px rgba(70, 96, 187, 0.2)',
+  boxShadow: '  0px 16px 30px -10px rgba(70, 96, 187, 0.2)',
 };
 
 export const darkTheme = {
