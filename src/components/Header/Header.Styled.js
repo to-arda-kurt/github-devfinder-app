@@ -29,6 +29,10 @@ export const Toggle = styled.a`
   cursor: pointer;
   display: flex;
   flex-direction: row;
+
+  &:hover {
+    color: ${(props) => props.theme.toggleHover};
+  }
 `;
 
 export const ToggleIcon = styled.svg`
@@ -40,5 +44,13 @@ export const ToggleSpan = styled.div`
 
   svg path {
     fill: ${(props) => props.theme.toggle};
+
+    &:hover {
+      fill: ${(props) => props.theme.toggleHover};
+    }
+  }
+
+  &:hover {
+    fill: ${(props) => props.theme.toggleHover};
   }
 `;

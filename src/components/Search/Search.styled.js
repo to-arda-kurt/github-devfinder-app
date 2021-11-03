@@ -13,6 +13,17 @@ export const SearchWrapper = styled.div`
   padding: 7px;
   margin-bottom: 16px;
   z-index: 0;
+  padding-left: 16px;
+
+  @media screen and (min-width: 768px) {
+    height: 69px;
+    padding-left: 32px;
+  }
+
+  @media screen and (max-width: 768px) and (min-width: 574px) {
+    height: 69px;
+    padding-left: 32px;
+  } ;
 `;
 
 export const SearchInput = styled.input`
@@ -32,6 +43,18 @@ export const SearchInput = styled.input`
   &:focus {
     outline: none;
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 25px;
+    padding-left: 24px;
+  }
+
+  @media screen and (max-width: 768px) and (min-width: 574px) {
+    font-size: 18px;
+    line-height: 25px;
+    padding-left: 24px;
+  } ;
 `;
 
 export const SearchButton = styled.button`
@@ -47,6 +70,18 @@ export const SearchButton = styled.button`
   height: 100%;
   width: 84px;
   cursor: pointer;
+
+  &:hover {
+    background: ${(props) => props.theme.buttonHover};
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 106px;
+  }
+
+  @media screen and (max-width: 768px) and (min-width: 574px) {
+    width: 106px;
+  } ;
 `;
 
 export const ErrorText = styled.p`
