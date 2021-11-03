@@ -56,7 +56,7 @@ export const ResultBio = styled.p`
 export const ResultInfo = styled.div`
   height: 85px;
   border-radius: 10px;
-  background: #f6f8ff;
+  background: ${(props) => props.theme.body};
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -68,6 +68,10 @@ export const ResultInfoItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  p {
+    color: ${(props) => props.theme.font};
+  }
 `;
 
 export const ResultInfoHeader = styled.h3`
@@ -75,4 +79,30 @@ export const ResultInfoHeader = styled.h3`
   font-weight: normal;
   font-size: 11px;
   line-height: 16px;
+`;
+
+export const ResultFooter = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 24px;
+`;
+
+export const ResultFooterItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  color: ${(props) => (props.status === 'active' ? '' : props.theme.toggle)};
+  opacity: ${(props) => (props.status === 'active' ? '' : '0.5')};
+
+  svg path {
+    fill: ${(props) => props.theme.toggle};
+  }
+
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    padding-left: 13px;
+  }
 `;

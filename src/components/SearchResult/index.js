@@ -10,19 +10,22 @@ import {
   ResultInfo,
   ResultInfoHeader,
   ResultInfoItem,
+  ResultFooter,
+  ResultFooterItem,
+  ResultFooterActiveText,
 } from './SearchResult.styled';
+import {
+  CompanyIcon,
+  TwitterIcon,
+  WebsiteIcon,
+  LocationIcon,
+} from '../../assets/Icons';
 import MainContext from '../../context/mainContext';
 import { shortMonthName } from '../../utils';
 const SearchResult = () => {
   const mainContext = useContext(MainContext);
   const { user, isLoaded } = mainContext;
-  useEffect(() => {
-    if (user.name) {
-      document.title = `User ${user.name}`;
-    } else {
-      document.title = 'No user';
-    }
-  }, [user]);
+
   const joinDate = new Date(user.created_at);
 
   const [year, month, day] = [
@@ -67,24 +70,30 @@ const SearchResult = () => {
                 <p>{user.following}</p>
               </ResultInfoItem>
             </ResultInfo>
-            <div className="LISTS">
-              <div>
-                <div className="icon"></div>
-                <div className="info"></div>
-              </div>
-              <div>
-                <div className="icon"></div>
-                <div className="info"></div>
-              </div>
-              <div>
-                <div className="icon"></div>
-                <div className="info"></div>
-              </div>
-              <div>
-                <div className="icon"></div>
-                <div className="info"></div>
-              </div>
-            </div>
+            <ResultFooter>
+              <ResultFooterItem status={user.location ? 'active' : 'passive'}>
+                <LocationIcon />
+                <p>{user.location ? user.location : 'Not Available'}</p>
+              </ResultFooterItem>
+              <ResultFooterItem status={user.blog ? 'active' : 'passive'}>
+                <WebsiteIcon />
+                <p>{user.blog ? user.blog : 'Not Available'}</p>
+              </ResultFooterItem>
+              <ResultFooterItem
+                status={user.twitter_username ? 'active' : 'passive'}
+              >
+                <TwitterIcon />
+                <p>
+                  {user.twitter_username
+                    ? user.twitter_username
+                    : 'Not Available'}
+                </p>
+              </ResultFooterItem>
+              <ResultFooterItem status={user.company ? 'active' : 'passive'}>
+                <CompanyIcon />
+                <p>{user.company ? user.company : 'Not Available'}</p>
+              </ResultFooterItem>
+            </ResultFooter>
           </div>
         </ResultWrapper>
       ) : (
