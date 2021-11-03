@@ -1,6 +1,18 @@
 import React, { useContext, useEffect } from 'react';
-import { ResultWrapper } from './SearchResult.styled';
+import {
+  ResultWrapper,
+  ResultImg,
+  ResultHeader,
+  ResultHeaderName,
+  ResultHeaderUser,
+  ResultHeaderDate,
+  ResultBio,
+  ResultInfo,
+  ResultInfoHeader,
+  ResultInfoItem,
+} from './SearchResult.styled';
 import MainContext from '../../context/mainContext';
+import { shortMonthName } from '../../utils';
 const SearchResult = () => {
   const mainContext = useContext(MainContext);
   const { user, isLoaded } = mainContext;
@@ -11,36 +23,50 @@ const SearchResult = () => {
       document.title = 'No user';
     }
   }, [user]);
+  const joinDate = new Date(user.created_at);
+
+  const [year, month, day] = [
+    joinDate.getFullYear(),
+    shortMonthName(joinDate.getMonth()),
+    joinDate.getDate(),
+  ];
+
   return (
     <>
       {isLoaded ? (
         <ResultWrapper>
           <div>
-            <div>
-              <img src="" alt="" />
-            </div>
-            <div className="RIGHT">
-              <h2>{user.name}</h2>
-              <p>@{user.login}</p>
-            </div>
-            <div className="Date">
-              <p>Joined {user.created_at}</p>
-            </div>
-            <div>DESC</div>
-            <div className="INFOS">
+            <ResultHeader>
+              <ResultImg src={user.avatar_url} alt="" />
               <div>
-                <p>REPOS</p>
-                <p>8</p>
+                <ResultHeaderName>
+                  {user.name ? user.name : user.login}
+                </ResultHeaderName>
+                <ResultHeaderUser>@{user.login}</ResultHeaderUser>
+                <ResultHeaderDate>
+                  Joined {day} {month} {year}
+                </ResultHeaderDate>
               </div>
-              <div>
-                <p>Followers</p>
-                <p>2222</p>
-              </div>
-              <div>
-                <p>Following</p>
-                <p>9</p>
-              </div>
-            </div>
+            </ResultHeader>
+            <ResultBio>
+              {user.bio
+                ? user.bio
+                : 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'}
+            </ResultBio>
+            <ResultInfo>
+              <ResultInfoItem>
+                <ResultInfoHeader>Repos</ResultInfoHeader>
+                <p>{user.public_repos}</p>
+              </ResultInfoItem>
+              <ResultInfoItem>
+                <ResultInfoHeader>Followers</ResultInfoHeader>
+                <p>{user.followers}</p>
+              </ResultInfoItem>
+              <ResultInfoItem>
+                <ResultInfoHeader>Following</ResultInfoHeader>
+                <p>{user.following}</p>
+              </ResultInfoItem>
+            </ResultInfo>
             <div className="LISTS">
               <div>
                 <div className="icon"></div>
