@@ -22,8 +22,6 @@ const SearchBar = () => {
     }
   };
 
-  console.log(error);
-
   return (
     <SearchWrapper>
       <SearchIcon />

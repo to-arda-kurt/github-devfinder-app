@@ -95,4 +95,26 @@ export const ErrorText = styled.p`
   font-size: 12px;
   line-height: 12px;
   color: #f74646;
+
+  @media screen and (min-width: 768px) {
+    font-size: 15px;
+    line-height: 22px;
+    padding-left: 24px;
+    height: 22px;
+    left: 68.22%;
+    right: 19.18%;
+    top: calc(50% - 22px / 2 + 0.5px);
+    width: 120px;
+  }
+
+  @media screen and (max-width: 768px) and (min-width: 574px) {
+    font-size: 15px;
+    line-height: 22px;
+    padding-left: 24px;
+    height: 22px;
+    left: 60%;
+    right: 19.18%;
+    top: calc(50% - 22px / 2 + 0.5px);
+    width: 120px;
+  } ;
 `;
