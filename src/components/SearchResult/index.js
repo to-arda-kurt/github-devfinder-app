@@ -103,70 +103,7 @@ const SearchResult = () => {
           </ResultFooter>
         </ResultWrapper>
       ) : (
-        <ResultWrapper>
-          <ResultHeader>
-            <ResultImg src={user.avatar_url} alt="" />
-            <ResultInfoDesktop>
-              <ResultHeaderName>
-                {user.name ? user.name : user.login}
-              </ResultHeaderName>
-              <ResultHeaderUser>@{user.login}</ResultHeaderUser>
-              <ResultHeaderDate>
-                Joined {day} {month} {year}
-              </ResultHeaderDate>
-            </ResultInfoDesktop>
-          </ResultHeader>
-          <ResultBio>
-            {user.bio
-              ? user.bio
-              : 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'}
-          </ResultBio>
-          <ResultInfo>
-            <ResultInfoItem>
-              <ResultInfoHeader>Repos</ResultInfoHeader>
-              <p>{user.public_repos}</p>
-            </ResultInfoItem>
-            <ResultInfoItem>
-              <ResultInfoHeader>Followers</ResultInfoHeader>
-              <p>{user.followers}</p>
-            </ResultInfoItem>
-            <ResultInfoItem>
-              <ResultInfoHeader>Following</ResultInfoHeader>
-              <p>{user.following}</p>
-            </ResultInfoItem>
-          </ResultInfo>
-          <ResultFooter>
-            <ResultFooterCol>
-              <ResultFooterItem status={user.location ? 'active' : 'passive'}>
-                <LocationIcon />
-                <p>{user.location ? user.location : 'Not Available'}</p>
-              </ResultFooterItem>
-              <ResultFooterItem status={user.blog ? 'active' : 'passive'}>
-                <WebsiteIcon />
-                <a href={user.blog} target="_blank" rel="noreferrer">
-                  {user.blog ? user.blog : 'Not Available'}
-                </a>
-              </ResultFooterItem>
-            </ResultFooterCol>
-
-            <ResultFooterCol>
-              <ResultFooterItem
-                status={user.twitter_username ? 'active' : 'passive'}
-              >
-                <TwitterIcon />
-                <p>
-                  {user.twitter_username
-                    ? user.twitter_username
-                    : 'Not Available'}
-                </p>
-              </ResultFooterItem>
-              <ResultFooterItem status={user.company ? 'active' : 'passive'}>
-                <CompanyIcon />
-                <p>{user.company ? user.company : 'Not Available'}</p>
-              </ResultFooterItem>
-            </ResultFooterCol>
-          </ResultFooter>
-        </ResultWrapper>
+        ''
       )}
     </>
   );
