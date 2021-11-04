@@ -8,7 +8,7 @@ const MainState = (props) => {
   const initialState = {
     searchText: '',
     isLoaded: false,
-    theme: 'light',
+    theme: 'dark',
     user: {
       login: 'octocat',
       id: 583231,
