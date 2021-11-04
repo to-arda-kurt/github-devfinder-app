@@ -53,7 +53,7 @@ const MainState = (props) => {
 
   const getUser = async (searchText) => {
     console.log('[context] GETUSER');
-    const res = await axios
+    await axios
       .get(`https://api.github.com/users/${searchText}`)
       .then((res) => {
         console.log(res.data);

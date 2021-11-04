@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import mainContext from './context/mainContext';
 import {
   GlobalStyle,

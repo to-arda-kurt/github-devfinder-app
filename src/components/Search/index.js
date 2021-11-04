@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import mainContext from '../../context/mainContext';
 import {
   SearchWrapper,
@@ -11,6 +11,7 @@ import { SearchIcon } from '../../assets/Icons';
 const SearchBar = () => {
   const MainContext = useContext(mainContext);
   const { getUser, error } = MainContext;
+
   const [user, setUser] = useState('');
 
   const searchUser = (e) => {
